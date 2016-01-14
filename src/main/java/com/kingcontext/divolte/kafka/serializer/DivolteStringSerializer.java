@@ -5,16 +5,15 @@ import java.util.Map;
 import io.divolte.server.DivolteIdentifier;
 
 import org.apache.kafka.common.serialization.Serializer;
+import org.apache.kafka.common.serialization.StringSerializer;
 
-import io.confluent.kafka.serializers.KafkaAvroSerializer;
+public class DivolteStringSerializer implements Serializer<DivolteIdentifier> {
 
-public class DivolteConfluentStringSerializer implements Serializer<DivolteIdentifier> {
+    private StringSerializer ser;
 
-	private KafkaAvroSerializer ser;
-
-    public DivolteConfluentStringSerializer() {
+    public DivolteStringSerializer() {
         super();
-        ser = new KafkaAvroSerializer();
+        ser = new StringSerializer();
     }
 
     @Override
